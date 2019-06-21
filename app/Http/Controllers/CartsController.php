@@ -16,23 +16,35 @@ class CartsController extends Controller
         {
             $id = $request->id;
             $product = Product::findOrFail($id);
+            $stock = $product->quantity;
             $quantity = $request->quantity;
-            $image = $product->images[config('setting.zero_value')];
-            
             $oldCart = Session::has('cart') ? Session::get('cart') : null;
-            $cart = new Cart($oldCart);
-            $cart->add($product, $product->id, $quantity);
+            $item_quantity = config('setting.zero_value');
 
-            $request->session()->put('cart', $cart);
+            if($oldCart)
+            {
+                $item_quantity = array_key_exists($id, $oldCart->items) ? $oldCart->items[$id]['quantity'] : config('setting.zero_value');
+            }
             
-            return response()->json([
-                'cart' => $cart->items,
-                'totalQuantity' => $cart->totalQuantity,
-                'totalPrice' => $cart->totalPrice,
-                'product' => $product,
-                'image' => $product->images[config('setting.zero_value')],
-                'message' => trans('content.added_to_cart'),
-            ]);
+            if ($stock - $quantity - $item_quantity < config('setting.zero_value'))
+            {
+                return response()->json([
+                    'message' => trans('content.only').$stock.trans('content.products!'),
+                ]);
+            }
+            else
+            {
+                $image = $product->images[config('setting.zero_value')];
+                $cart = new Cart($oldCart);
+                $cart->add($product, $product->id, $quantity);
+                $request->session()->put('cart', $cart);
+                
+                return response()->json([
+                    'totalQuantity' => $cart->totalQuantity,
+                    'totalPrice' => $cart->totalPrice,
+                    'message' => trans('content.added_to_cart'),
+                ]);    
+            }
         }
         catch (\Exception $e)
         {

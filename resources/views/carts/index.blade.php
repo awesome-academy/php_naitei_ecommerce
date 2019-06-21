@@ -55,7 +55,7 @@
                                         <td>
                                             <div class="product_count">
                                                 <input type="text" id="{{ $product['item']['id'] }}" maxlength="12" value="{{ $product['quantity'] }}" title="{{ trans('content.quantity:') }}"
-                                                    min="1" max="{{ $product['quantity'] }}" class="input-text{{ $product['item']['id'] }}">
+                                                    min="1" max="{{ $product['item']['quantity'] }}" class="input-text{{ $product['item']['id'] }}">
                                                 <button class="increase items-count" id="{{ $product['item']['id'] }}" type="button"><i class="lnr lnr-chevron-up"></i></button>
                                                 <button class="reduced items-count" id="{{ $product['item']['id'] }}" type="button"><i class="lnr lnr-chevron-down"></i></button>
                                             </div>

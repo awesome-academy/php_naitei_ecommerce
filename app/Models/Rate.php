@@ -1,12 +1,12 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Rate extends Model
 {
-    protected $guard = [
+    protected $guarded = [
         'id'
     ];
 }

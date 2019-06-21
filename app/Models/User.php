@@ -49,7 +49,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function products()
     {
-        return $this->belongsToMany(Product::class);
+        return $this->belongsToMany(Product::class, 'rates')->withPivot('review', 'point')->withTimestamps();
     }
 
     public function suggestions()

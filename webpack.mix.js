@@ -51,5 +51,6 @@ mix.scripts([
     'public/js/selfjs/users.js',
     'public/js/selfjs/cart.js',
     'public/js/selfjs/update_quantity.js',
-    'public/js/selfjs/orders.js'
+    'public/js/selfjs/orders.js',
+    'public/js/selfjs/rate.js',
 ], 'public/js/app.min.js');

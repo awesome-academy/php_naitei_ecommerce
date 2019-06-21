@@ -89,3 +89,9 @@ Route::get('/shop', 'ShopController@index')->name('shop');
  * Route for search
  */
 Route::get('/search', 'ShopController@search')->name('search');
+
+
+/**
+ * Route for rate
+ */
+Route::post('/rates', 'RatesController@store')->name('new_rate');
