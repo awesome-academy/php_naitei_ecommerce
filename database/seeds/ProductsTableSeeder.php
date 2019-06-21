@@ -30,7 +30,7 @@ class ProductsTableSeeder extends Seeder
                 'description' => 'Organic Food '.$i.' Description',
                 'price' => rand(100,200)/10,
                 'images' => '["img/organic-food/p1.jpg","img/organic-food/p2.jpg","img/organic-food/p3.jpg"]',
-                'avgPoint' => rand(1,50)/10,
+                'avgPoint' => rand(30,50)/10,
                 'quantity' => rand(1,50),
                 'slug' => uniqid(),
                 'category_id' => 2,

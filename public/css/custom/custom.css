@@ -56,3 +56,11 @@
 .results-count {
     font-size: 18px;
 }
+
+.review_item {
+    margin-top: 15px;
+}
+
+.default-star {
+    color: #333;
+}

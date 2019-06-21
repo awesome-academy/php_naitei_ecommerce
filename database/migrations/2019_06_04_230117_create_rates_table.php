@@ -14,12 +14,12 @@ class CreateRatesTable extends Migration
     public function up()
     {
         Schema::create('rates', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('product_id');
             $table->float('point', 8, 2);
             $table->timestamps();
 
-            $table->unique(['user_id','product_id']);
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
