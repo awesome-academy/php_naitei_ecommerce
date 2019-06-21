@@ -19,6 +19,8 @@ Auth::routes(['verify' => true]);
 Route::get('users/{user}',  ['as' => 'users.show', 'uses' => 'UserController@show']);
 Route::patch('users/{user}/update',  ['as' => 'users.update', 'uses' => 'UserController@update']);
 
+Route::resource('order', 'OrdersController');
+
 Route::group([
     'prefix' => 'admin',
     'namespace' => 'Admin',
@@ -28,6 +30,7 @@ Route::group([
             'prefix' => 'users'
         ], function(){
             Route::get('/', 'UsersController@view')
+                ->name('manage_users')
                 ->middleware('can:users.view');
             Route::get('/getdata', 'UsersController@getdata');
             Route::get('/create', 'UsersController@create')
@@ -37,7 +40,7 @@ Route::group([
                 ->name('users.create')
                 ->middleware('can:users.create');
             Route::get('/edit/{users}', 'UsersController@edit')
-                ->name('edit_users')
+                ->name('admin.edit_users')
                 ->middleware('can:users.update');
             Route::post('/edit/{users}', 'UsersController@update')
                 ->name('edit_users')
@@ -50,6 +53,7 @@ Route::group([
             'prefix' => 'orders'
         ], function(){
             Route::get('/', 'OrdersController@index')
+                ->name('manage_orders')
                 ->middleware('can:orders.view');
             Route::get('/getdata', 'OrdersController@getdata');
             Route::get('/show/{order}', 'OrdersController@show')

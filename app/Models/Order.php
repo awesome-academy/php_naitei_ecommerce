@@ -7,8 +7,13 @@ use App\Models\Product;
 
 class Order extends Model
 {
-    protected $guard = [
-        'id'
+    protected $fillable = [
+        'address',
+        'slug',
+        'startday',
+        'dueday',
+        'order_total',
+        'user_id',
     ];
 
     public function owner()
@@ -19,5 +24,10 @@ class Order extends Model
     public function products()
     {
         return $this->belongsToMany(Product::class, 'order_product')->withPivot('quantity');
+    }
+
+    public function getRouteKey()
+    {
+        return $this->slug;
     }
 }

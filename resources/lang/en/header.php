@@ -12,5 +12,7 @@
         'admin' => 'Admin',
         'shop_page' => 'Shopping Page',
         'search_results' => 'Search Results',
-        
+        'checkout' => 'Checkout',
+        'manage_users' => 'Manage Users',
+        'manage_orders' => 'Manage Orders'
 ];

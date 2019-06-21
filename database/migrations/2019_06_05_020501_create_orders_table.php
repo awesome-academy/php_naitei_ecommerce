@@ -19,9 +19,9 @@ class CreateOrdersTable extends Migration
             $table->string('address');
             $table->string('slug')->unique();
             $table->float('order_total', 10, 2);
-            $table->text('note');
+            $table->text('note')->nullable();
             $table->date('startday');
-            $table->date('dueday');
+            $table->date('dueday')->nullable();
             $table->tinyInteger('status')->unsigned()->default(OrderStatus::Pending);
             $table->unsignedBigInteger('user_id');
             $table->timestamps();

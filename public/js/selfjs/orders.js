@@ -4,9 +4,11 @@ $(document).ready(function () {
         "serverSide": true,
         "ajax": "/admin/orders/getdata",
         "columns": [
+            { "data": "slug" },
             { "data": "address" },
             { "data": "order_total" },
             { "data": "status" },
+            { "data": "startday" },
             { "data": "user_name" },
             { "data": "action", orderable: false, searchable: false }
         ]

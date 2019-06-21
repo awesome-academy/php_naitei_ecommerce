@@ -142,7 +142,7 @@
                                         <div class="checkout_btn_inner d-flex align-items-center">
                                             <a class="primary-btn" href="{{ route('root') }}"><i class="fas fa-chevron-left"></i> @lang('content.continue_shopping')</a>
                                             &nbsp;
-                                            <a class="primary-btn" href="#">@lang('content.go_to_checkout') <i class="fas fa-cash-register"></i></a>
+                                            <a class="primary-btn" href="{{ route('order.create') }}">@lang('content.go_to_checkout') <i class="fas fa-cash-register"></i></a>
                                         </div>
                                     </td>
                                     <td></td>

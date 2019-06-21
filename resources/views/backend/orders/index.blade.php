@@ -24,9 +24,11 @@
         <table class="table" id="orders_table">
             <thead>
                 <tr>
+                    <th>@lang('orders.id')</th>
                     <th>@lang('orders.address')</th>
                     <th>@lang('orders.order_total')</th>
-                    <th>@lang('orders.accepted')</th>
+                    <th>@lang('orders.status')</th>
+                    <th>@lang('orders.date')</th>
                     <th>@lang('orders.user_name')</th>
                     <th>@lang('content.action')</th>
                 </tr>

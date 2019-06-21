@@ -26,7 +26,7 @@ class OrdersController extends Controller
 
     public function getdata()
     {
-        $orders = Order::select('id', 'address', 'order_total', 'note', 'status', 'user_id')->orderby('status');
+        $orders = Order::select('id','slug', 'address', 'order_total','startday', 'note', 'status', 'user_id')->orderby('status');
         return Datatables::of($orders)
             ->addColumn('user_name', function($order){
                 return $order->owner->name;
